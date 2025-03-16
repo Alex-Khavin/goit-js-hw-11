@@ -14,8 +14,7 @@ export function fetchData(options) {
            iziToast.show({
                 message: `${error.message}`,
                 messageColor: 'white',
-               iconUrl: 'https://cdn-icons-png.flaticon.com/512/1828/1828843.png',
-                iconColor: 'black',
+               iconUrl: '../img/blocked.svg',
                 position: 'topRight',
                 color: '#ef4040',
            });

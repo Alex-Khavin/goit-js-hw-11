@@ -97,10 +97,12 @@ function markupImg(cards) {
     alt="${card.tags}"
     />
     </a>
-    <p class="item-text">Likes: ${card.likes}</p>
-    <p class="item-text">Views: ${card.views}</p>
-    <p class="item-text">Comments: ${card.comments}</p>
-    <p class="item-text">Downloads: ${card.downloads}</p>
+    <div class="item-subtitle">
+    <p class="item-text"><b>Likes</b> ${card.likes}</p>
+    <p class="item-text"><b>Views</b> ${card.views}</p>
+    <p class="item-text"><b>Comments</b> ${card.comments}</p>
+    <p class="item-text"><b>Downloads</b> ${card.downloads}</p>
+    </div>
     </li>`;
   })
   .join("");

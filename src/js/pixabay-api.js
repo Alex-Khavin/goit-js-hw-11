@@ -1,20 +1,23 @@
-// import axios from "axios";
-// import { options } from "../main";
+import axios from "axios";
+import iziToast from "izitoast";
+import "izitoast/dist/css/iziToast.min.css";
 
-// export const options = {
-//     params: {
-//         key: "49358798-a0fde913d86352b572e9384bf",
-//         q: "",
-//         image_type: "photo",
-//         orientation: "horizontal",
-//         safesearch: true,
-//         }
-// };
-
-// export function fetchData() {
-//    return axios.get(`https://pixabay.com/api/?`, options)
-//        .then((response) => { console.log(response.data) })
-//        .catch((error) => {console.log(error.message)})
-// }
-
-// fetchData();
+export function fetchData(options) {
+   return axios.get(`https://pixabay.com/api/?`, options)
+       .then((response) => {
+           if (!response.data?.hits?.length) {
+               throw new Error("Sorry, there are no images matching your search query. Please try again!");
+           }
+           return response.data.hits;
+       })
+       .catch((error) => {
+           iziToast.show({
+                message: `${error.message}`,
+                messageColor: 'white',
+                iconUrl: './img/cancel-circle.svg',
+                position: 'topRight',
+                color: '#ef4040',
+           });
+           return [];
+       })
+}

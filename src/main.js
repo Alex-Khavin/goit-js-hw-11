@@ -38,7 +38,7 @@ function formSubmit(event) {
          iziToast.show({
                 message: 'Fill in the search field!',
                 messageColor: 'white',
-                iconUrl: './img/cancel-circle.svg',
+                iconUrl: '/src/img/cancel-circle.svg',
                 position: 'topRight',
                 color: '#ef4040',
          });

@@ -14,7 +14,7 @@ export function fetchData(options) {
            iziToast.show({
                 message: `${error.message}`,
                 messageColor: 'white',
-                iconUrl: './img/cancel-circle.svg',
+                iconUrl: '../img/cancel-circle.svg',
                 position: 'topRight',
                 color: '#ef4040',
            });

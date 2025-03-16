@@ -25,10 +25,9 @@ const loader = document.querySelector(".loader");
 
 formData.addEventListener("submit", formSubmit);
 formInput.addEventListener("input", onInput);
-document.addEventListener("DOMContentLoaded", () => {
-    loader.classList.add("hidden");
-});
-
+// document.addEventListener("DOMContentLoaded", () => {
+//     loader.classList.add("hidden");
+// });
 
 function onInput(event) {
     inputData = event.target.value.trim();
@@ -36,6 +35,7 @@ function onInput(event) {
 
 function formSubmit(event) {
     event.preventDefault();
+    console.log("Форма відправлена, додаємо лоадер..."); ///
     const form = event.currentTarget;
 
     if (inputData === "") {
@@ -52,17 +52,22 @@ function formSubmit(event) {
     options.params.q = inputData;
 
     galleryList.innerHTML = "";
-
+console.log("Показуємо лоадер"); ///
     loader.classList.remove("hidden");
-    
+
     fetchData(options).then(images => {
         galleryList.insertAdjacentHTML("beforeend", markupImg(images));
         gallery.refresh();
     })
+        .finally(() => {
+        console.log("Приховуємо лоадер"); ///
+           loader.classList.add("hidden");
+       })
 
     form.reset();
     inputData = "";
 }
+
 
 let gallery = new SimpleLightbox('.gallery a', { captionsData: "alt", captionDelay: 250 });
 
@@ -84,6 +89,7 @@ function fetchData(options) {
            });
            return [];
        })
+    
 }
 
 function markupImg(cards) {

@@ -38,7 +38,7 @@ function formSubmit(event) {
          iziToast.show({
                 message: 'Fill in the search field!',
                 messageColor: 'white',
-                iconUrl: './img/blocked.svg',
+                iconUrl: './public/blocked.svg',
                 position: 'topRight',
                 color: '#ef4040',
          });
